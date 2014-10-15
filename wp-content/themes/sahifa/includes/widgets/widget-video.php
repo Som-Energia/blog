@@ -39,9 +39,9 @@ class tie_video_widget extends WP_Widget {
 		<?php if ( !empty( $embed_code ) ): echo $embed_code ?>
 
 		<?php elseif ( !empty( $instance['youtube_video'] ) ):?>
-			<iframe width="100%" height="210" src="http://www.youtube.com/embed/<?php echo $instance['youtube_video'] ?>?rel=0&wmode=opaque" frameborder="0" allowfullscreen></iframe>
+			<iframe width="100%" height="210" src="//www.youtube.com/embed/<?php echo $instance['youtube_video'] ?>?rel=0&wmode=opaque" frameborder="0" allowfullscreen></iframe>
 		<?php elseif ( !empty( $instance['vimeo_video'] ) ):?>
-			<iframe src="http://player.vimeo.com/video/<?php echo $instance['vimeo_video'] ?>?wmode=opaque" width="100%" height="210" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+			<iframe src="//player.vimeo.com/video/<?php echo $instance['vimeo_video'] ?>?wmode=opaque" width="100%" height="210" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 		<?php endif; ?>
 		
 		
@@ -75,13 +75,13 @@ class tie_video_widget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'youtube_video' ); ?>">Youtube Video ID : </label>
 			<input id="<?php echo $this->get_field_id( 'youtube_video' ); ?>" name="<?php echo $this->get_field_name( 'youtube_video' ); ?>" value="<?php if( !empty( $instance['youtube_video'] ) ) echo $instance['youtube_video']; ?>" class="widefat" type="text" />
-			<small>if video url : http://www.youtube.com/watch?v=UjXi6X-moxE  Enter above <strong>UjXi6X-moxE</strong></small>
+			<small>if video url : //www.youtube.com/watch?v=UjXi6X-moxE  Enter above <strong>UjXi6X-moxE</strong></small>
 		</p>
 		<em style="display:block; border-bottom:1px solid #CCC; margin-bottom:15px;">OR</em>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'vimeo_video' ); ?>">Vimeo Video ID : </label>
 			<input id="<?php echo $this->get_field_id( 'vimeo_video' ); ?>" name="<?php echo $this->get_field_name( 'vimeo_video' ); ?>" value="<?php if( !empty( $instance['vimeo_video'] ) ) echo $instance['vimeo_video']; ?>" class="widefat" type="text" />
-			<small>if video url : http://vimeo.com/6184227  Enter above <strong>6184227</strong></small>
+			<small>if video url : //vimeo.com/6184227  Enter above <strong>6184227</strong></small>
 		</p>
 
 

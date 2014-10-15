@@ -25,7 +25,7 @@ class tie_flickr_photos extends WP_Widget {
 			echo $before_title;
 			echo $title ; ?>
 		<?php echo $after_title; ?>
-		<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=<?php echo $no_of_photos; ?>&amp;display=<?php echo $flickr_display; ?>&amp;size=s&amp;layout=x&amp;source=user&amp;user=<?php echo $flickr_id; ?>"></script>        
+		<script type="text/javascript" src="//www.flickr.com/badge_code_v2.gne?count=<?php echo $no_of_photos; ?>&amp;display=<?php echo $flickr_display; ?>&amp;size=s&amp;layout=x&amp;source=user&amp;user=<?php echo $flickr_id; ?>"></script>        
 		<div class="clear"></div>
 	<?php 
 		echo $after_widget;
@@ -51,7 +51,7 @@ class tie_flickr_photos extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'flickr_id' ); ?>">Flickr ID : </label>
 			<input id="<?php echo $this->get_field_id( 'flickr_id' ); ?>" name="<?php echo $this->get_field_name( 'flickr_id' ); ?>" value="<?php if( !empty($instance['flickr_id']) ) echo $instance['flickr_id']; ?>" class="widefat" type="text" />
-			<small> Find Your ID at(<a href="http://www.idgettr.com">idGettr</a>)</small>
+			<small> Find Your ID at(<a href="//www.idgettr.com">idGettr</a>)</small>
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'no_of_photos' ); ?>">Number of photos to show : </label>

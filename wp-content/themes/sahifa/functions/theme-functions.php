@@ -528,14 +528,14 @@ function tie_video(){
 			if ( $video_link['host'] == 'www.youtube.com' || $video_link['host']  == 'youtube.com' ) {
 				parse_str( @parse_url( $video_url, PHP_URL_QUERY ), $my_array_of_vars );
 				$video =  $my_array_of_vars['v'] ;
-				$video_output ='<iframe width="'.$width.'" height="'.$height.'" src="http://www.youtube.com/embed/'.$video.'?rel=0&wmode=opaque" frameborder="0" allowfullscreen></iframe>';
+				$video_output ='<iframe width="'.$width.'" height="'.$height.'" src="//www.youtube.com/embed/'.$video.'?rel=0&wmode=opaque" frameborder="0" allowfullscreen></iframe>';
 			}
 			elseif( $video_link['host'] == 'www.youtu.be' || $video_link['host']  == 'youtu.be' ){
 				$video = substr(@parse_url($video_url, PHP_URL_PATH), 1);
-				$video_output ='<iframe width="'.$width.'" height="'.$height.'" src="http://www.youtube.com/embed/'.$video.'?rel=0&wmode=opaque" frameborder="0" allowfullscreen></iframe>';
+				$video_output ='<iframe width="'.$width.'" height="'.$height.'" src="//www.youtube.com/embed/'.$video.'?rel=0&wmode=opaque" frameborder="0" allowfullscreen></iframe>';
 			}elseif( $video_link['host'] == 'www.vimeo.com' || $video_link['host']  == 'vimeo.com' ){
 				$video = (int) substr(@parse_url($video_url, PHP_URL_PATH), 1);
-				$video_output='<iframe src="http://player.vimeo.com/video/'.$video.'?wmode=opaque" width="'.$width.'" height="'.$height.'" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
+				$video_output='<iframe src="//player.vimeo.com/video/'.$video.'?wmode=opaque" width="'.$width.'" height="'.$height.'" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
 			}
 			elseif( $video_link['host'] == 'www.dailymotion.com' || $video_link['host']  == 'dailymotion.com' ){
 				$video = substr(@parse_url($video_url, PHP_URL_PATH), 7);
@@ -1117,7 +1117,7 @@ function tie_youtube_subs( $channel_link ){
 				else
 					$youtube_name = substr(@parse_url($channel_link, PHP_URL_PATH), 9);
 
-				$json = @tie_remote_get("http://gdata.youtube.com/feeds/api/users/".$youtube_name."?alt=json");
+				$json = @tie_remote_get("//gdata.youtube.com/feeds/api/users/".$youtube_name."?alt=json");
 				$data = json_decode($json, true); 
 				$subs = $data['entry']['yt$statistics']['subscriberCount']; 
 			} catch (Exception $e) {
@@ -1355,8 +1355,8 @@ function tie_login_form( $login_only  = 0 ) {
 	<?php else: ?>
 		<div id="login-form">
 			<form action="<?php echo home_url() ?>/wp-login.php" method="post">
-				<p id="log-username"><input type="text" name="log" id="log" value="<?php _e( 'Username' , 'tie' ) ?>" onfocus="if (this.value == '<?php _e( 'Username' , 'tie' ) ?>') {this.value = '';}" onblur="if (this.value == '') {this.value = '<?php _e( 'Username' , 'tie' ) ?>';}"  size="33" /></p>
-				<p id="log-pass"><input type="password" name="pwd" id="pwd" value="<?php _e( 'Password' , 'tie' ) ?>" onfocus="if (this.value == '<?php _e( 'Password' , 'tie' ) ?>') {this.value = '';}" onblur="if (this.value == '') {this.value = '<?php _e( 'Password' , 'tie' ) ?>';}" size="33" /></p>
+				<p id="log-username"><input type="text" name="log" id="log" value="<?php _e( 'Username' , 'tie' ) ?>" onFocus="if (this.value == '<?php _e( 'Username' , 'tie' ) ?>') {this.value = '';}" onBlur="if (this.value == '') {this.value = '<?php _e( 'Username' , 'tie' ) ?>';}"  size="33" /></p>
+				<p id="log-pass"><input type="password" name="pwd" id="pwd" value="<?php _e( 'Password' , 'tie' ) ?>" onFocus="if (this.value == '<?php _e( 'Password' , 'tie' ) ?>') {this.value = '';}" onBlur="if (this.value == '') {this.value = '<?php _e( 'Password' , 'tie' ) ?>';}" size="33" /></p>
 				<input type="submit" name="submit" value="<?php _e( 'Log in' , 'tie' ) ?>" class="login-button" />
 				<label for="rememberme"><input name="rememberme" id="rememberme" type="checkbox" checked="checked" value="forever" /> <?php _e( 'Remember Me' , 'tie' ) ?></label>
 				<input type="hidden" name="redirect_to" value="<?php echo $_SERVER['REQUEST_URI']; ?>"/>
@@ -1386,11 +1386,11 @@ function tie_og_data() {
 			if ( $video_link['host'] == 'www.youtube.com' || $video_link['host']  == 'youtube.com' ) {
 				parse_str( @parse_url( $video_url, PHP_URL_QUERY ), $my_array_of_vars );
 				$video =  $my_array_of_vars['v'] ;
-				$post_thumb ='http://img.youtube.com/vi/'.$video.'/0.jpg';
+				$post_thumb ='//img.youtube.com/vi/'.$video.'/0.jpg';
 			}
 			elseif( $video_link['host'] == 'www.vimeo.com' || $video_link['host']  == 'vimeo.com' ){
 				$video = (int) substr(@parse_url($video_url, PHP_URL_PATH), 1);
-				$url = 'http://vimeo.com/api/v2/video/'.$video.'.php';;
+				$url = '//vimeo.com/api/v2/video/'.$video.'.php';;
 				$contents = @file_get_contents($url);
 				$thumb = @unserialize(trim($contents));
 				$post_thumb = $thumb[0]['thumbnail_large'];

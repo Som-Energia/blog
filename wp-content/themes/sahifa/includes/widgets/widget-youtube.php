@@ -24,7 +24,7 @@ class tie_youtube_widget extends WP_Widget {
 			echo $title ; ?>
 		<?php echo $after_title; ?>
 			<div class="youtube-box">
-			<iframe id="fr" src="http://www.youtube.com/subscribe_widget?p=<?php echo $page_url ?>" style="overflow: hidden; height: 105px; border: 0; width: 100%;" scrolling="no" frameBorder="0"></iframe></div>
+			<iframe id="fr" src="//www.youtube.com/subscribe_widget?p=<?php echo $page_url ?>" style="overflow: hidden; height: 105px; border: 0; width: 100%;" scrolling="no" frameBorder="0"></iframe></div>
 	<?php 
 		echo $after_widget;
 	}
